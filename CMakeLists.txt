@@ -30,7 +30,6 @@ endif()
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 option(RAPIDJSON_BUILD_DOC "Build rapidjson documentation." ON)
-option(RAPIDJSON_BUILD_EXAMPLES "Build rapidjson examples." ON)
 option(RAPIDJSON_BUILD_TESTS "Build rapidjson perftests and unittests." ON)
 option(RAPIDJSON_BUILD_THIRDPARTY_GTEST
     "Use gtest installation in `thirdparty/gtest` by default if available" OFF)
@@ -144,10 +143,6 @@ endif()
 add_custom_target(travis_doc)
 add_custom_command(TARGET travis_doc
     COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/travis-doxygen.sh)
-
-if(RAPIDJSON_BUILD_EXAMPLES)
-    add_subdirectory(example)
-endif()
 
 if(RAPIDJSON_BUILD_TESTS)
     if(MSVC11)
